@@ -1,11 +1,33 @@
-<div align="center">
+# Cronoe Surveys - Base del proyecto
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Estructura monolítica en Python para soportar encuestas con acceso por `public_code` (ideal para QR).
 
-  <h1>Built with AI Studio</h2>
+## Módulos iniciales
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- `surveys`: creación/edición/publicación de encuestas.
+- `responses`: captura de respuestas.
+- `access`: resolución de encuestas por código público.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## API mínima
 
-</div>
+- `POST /surveys`
+- `GET /surveys/{public_code}`
+- `POST /surveys/{public_code}/responses`
+
+### Extra
+
+- `PATCH /surveys/{public_code}` para editar/publicar.
+
+## Ejecución local
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .[dev]
+python -m app.main
+```
+
+## Notas
+
+- `public_code` se genera con `secrets.token_urlsafe(...)`, por lo que es no secuencial y seguro para compartir en enlaces/QR.
+- Almacenamiento actual en memoria (`app/storage.py`) para bootstrap rápido.

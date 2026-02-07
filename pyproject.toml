@@ -1,0 +1,18 @@
+[project]
+name = "cronoe-surveys"
+version = "0.2.0"
+description = "Base monolítica para encuestas con acceso por código público/QR"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0,<10.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
