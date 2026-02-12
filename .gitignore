@@ -1,0 +1,7 @@
+# Build artifacts
+.build_obs_installer/
+dist/*.pyz
+
+# Python cache
+__pycache__/
+*.pyc
