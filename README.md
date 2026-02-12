@@ -11,17 +11,36 @@ Overlay minimalista para transmisión con personalización visual en tiempo real
 - Persistencia automática en `localStorage`.
 - Ejecutable instalador para integración rápida con OBS plugins.
 
-## Ejecutar local
+## Descargar el proyecto
+
+### Opción A: con Git
+
+```bash
+git clone <URL_DEL_REPO>
+cd Cronoe
+```
+
+### Opción B: ZIP desde GitHub
+
+1. En GitHub, pulsa **Code > Download ZIP**.
+2. Descomprime el archivo.
+3. Abre terminal dentro de la carpeta `Cronoe`.
+
+## Ejecutar local (preview del overlay)
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Luego abre: `http://localhost:4173`
+Luego abre en navegador:
+
+```text
+http://localhost:4173
+```
 
 ## Ejecutable para OBS plugins
 
-Construir ejecutable (`.pyz` generado localmente):
+### 1) Construir ejecutable (`.pyz` generado localmente)
 
 ```bash
 ./scripts/build_obs_installer.sh
@@ -29,13 +48,13 @@ Construir ejecutable (`.pyz` generado localmente):
 
 > Nota: el archivo `dist/cronoe_obs_installer.pyz` es un binario generado y no se versiona en Git.
 
-Ejecutar instalador con autodetección de ruta OBS:
+### 2) Ejecutar instalador (autodetección de ruta OBS)
 
 ```bash
 ./dist/cronoe_obs_installer.pyz
 ```
 
-Ejecutar instalador indicando ruta manual:
+### 3) Ejecutar instalador (ruta manual)
 
 ```bash
 ./dist/cronoe_obs_installer.pyz --obs-plugin-dir "$HOME/.config/obs-studio/plugins"
